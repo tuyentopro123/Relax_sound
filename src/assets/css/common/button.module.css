@@ -1,0 +1,13 @@
+.button {
+  border: none;
+  margin: 10px 0;
+  border-radius: 8px;
+  padding: 10px;
+  background-color: var(--dark);
+  color: var(--light);
+}
+
+.button_light {
+  background-color: var(--light);
+  color: var(--dark);
+}

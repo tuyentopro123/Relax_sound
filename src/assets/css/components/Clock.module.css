@@ -1,0 +1,50 @@
+@import url("https://fonts.googleapis.com/css2?family=Andada+Pro:ital,wght@0,500;1,400&family=Neonderthaw&family=Orbitron:wght@400;500&display=swap");
+
+.clock {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: hsl(0deg 0% 6% / 84%);
+  border-bottom-right-radius: 10px;
+  color: #d1d1d1;
+  font-family: Orbitron;
+  padding: 10px;
+}
+
+.clock_container {
+  letter-spacing: 4px;
+  font-size: 45px;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+.clock_date_container {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+}
+
+.clock_date {
+  position: relative;
+  font-size: 14px;
+  padding: 0 12px 12px 12px;
+  letter-spacing: 2px;
+  transition: all 0.2s ease;
+  user-select: none;
+  min-width: 330px;
+}
+
+.clock_date_container:hover .clock_date {
+  color: rgb(33, 177, 239);
+  cursor: pointer;
+}
+
+.clock_date_container:hover .clock_date_icon {
+  opacity: 1;
+}
+
+.clock_date_icon {
+  opacity: 0;
+  cursor: pointer;
+}

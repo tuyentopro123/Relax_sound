@@ -1,0 +1,29 @@
+.utilities {
+  position: absolute;
+  min-width: 140px;
+  padding: 6px 6px;
+  top: 0;
+  right: 0;
+  background-color: var(--dark);
+  border-bottom-left-radius: 10px;
+}
+
+.utilities_container {
+  display: flex;
+  justify-content: space-around;
+  align-self: center;
+}
+
+.utilities_tooltip {
+  border-radius: 5px;
+  width: 180px;
+  /* flex-direction: column; */
+  display: flex;
+  justify-content: space-around;
+  align-self: center;
+  z-index: 1;
+}
+
+.utilities_icon {
+  cursor: pointer;
+}

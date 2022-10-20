@@ -1,0 +1,133 @@
+:root {
+  --light: rgb(225, 225, 225);
+  --dark: hsl(246, 32%, 20%);
+  --bg: rgb(225, 225, 225);
+}
+
+.main_layout {
+  position: relative;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.video_intro {
+  width: 100%;
+  height: 100%;
+  animation: fade 0.2s ease-in-out;
+}
+
+.video_intro video {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.style_mode {
+  position: absolute;
+  background-color: #b7b6b6d3;
+  border-radius: 10px;
+  top: 50%;
+  transform: translate(200%, -50%);
+  transition: all 0.3s ease;
+  right: 2%;
+  box-shadow: 0 0px 20px rgb(0 0 0 / 60%);
+}
+
+.style_effect_menu {
+  padding: 20px;
+  gap: 25px;
+  display: grid;
+  max-height: 350px;
+  overflow-y: scroll;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.style_mode.active {
+  transform: translate(0, -50%);
+}
+
+.style_mode:hover .style_close {
+  opacity: 1;
+}
+
+.style_close {
+  position: absolute;
+  opacity: 0;
+  top: -10px;
+  right: -10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
+  transition: opacity 0.1s ease-in-out;
+  background-color: #c3c3c3;
+}
+
+.style_close:hover {
+  cursor: pointer;
+  background-color: #d7d7d7;
+}
+
+.button_mode {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 16px;
+  cursor: pointer;
+  transform: translate(200%, 0);
+  background-color: var(--light);
+  color: var(--dark);
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+.button_mode.active:hover {
+  opacity: 0.8;
+}
+
+.button_mode.active {
+  transform: translate(0, 0);
+  opacity: 1;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  display: none;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgb(55, 52, 52);
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+/* ::-webkit-scrollbar-thumb:hover {
+  background: red;
+} */
+
+@keyframes fade {
+  from {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
