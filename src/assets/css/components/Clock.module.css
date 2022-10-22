@@ -9,6 +9,7 @@
   color: #d1d1d1;
   font-family: Orbitron;
   padding: 10px;
+  min-height: 130px;
 }
 
 .clock_container {

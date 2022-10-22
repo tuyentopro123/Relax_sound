@@ -67,9 +67,17 @@ const noel = new Howl({
   src: [`/sound/noel.mp3`],
   loop: true,
 });
-const Effect = ({ name, icon }: { name: String; icon: any }) => {
+const Effect = ({
+  name,
+  icon,
+  volume,
+}: {
+  name: String;
+  icon: any;
+  volume: boolean;
+}) => {
   const [sound, setSound] = useState(false);
-  const [volume, setVolume] = useState(0.5);
+  const [volumeEffect, setVolumeEffect] = useState(0.5);
   const effectSound = () => {
     let type = noel;
     switch (name) {
@@ -140,7 +148,7 @@ const Effect = ({ name, icon }: { name: String; icon: any }) => {
     pos1 = e.clientX - pos3;
     if (progress != null && draggle != null) {
       progress.style.width = lastWidth + pos1 + "px";
-      setVolume((lastWidth + pos1) / draggle.offsetWidth);
+      setVolumeEffect((lastWidth + pos1) / draggle.offsetWidth);
     }
   };
 
@@ -155,11 +163,41 @@ const Effect = ({ name, icon }: { name: String; icon: any }) => {
   useEffect(() => {
     var progress = document.getElementById(`${name}`);
     var draggle = document.getElementById(`dragg-${name}`);
-    effectSound().volume(volume);
+    effectSound().volume(volumeEffect);
     if (progress != null && draggle != null) {
-      progress.style.width = volume * draggle.offsetWidth + "px";
+      progress.style.width = volumeEffect * draggle.offsetWidth + "px";
     }
-  }, [volume, sound]);
+  }, [volumeEffect, sound]);
+
+  useEffect(() => {
+    if (volume) {
+      noel.mute(false);
+      morning.mute(false);
+      night.mute(false);
+      rain.mute(false);
+      thunder.mute(false);
+      waves.mute(false);
+      fire.mute(false);
+      group.mute(false);
+      keyboard.mute(false);
+      train.mute(false);
+      wing.mute(false);
+      city.mute(false);
+    } else {
+      noel.mute(true);
+      morning.mute(true);
+      night.mute(true);
+      rain.mute(true);
+      thunder.mute(true);
+      waves.mute(true);
+      fire.mute(true);
+      group.mute(true);
+      keyboard.mute(true);
+      train.mute(true);
+      wing.mute(true);
+      city.mute(true);
+    }
+  }, [volume]);
 
   return (
     <div className={style.effect}>

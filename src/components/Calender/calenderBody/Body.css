@@ -1,0 +1,125 @@
+.body {
+  width: 400px;
+  margin: auto;
+}
+
+/* header */
+.header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.date {
+  margin-left: 12px;
+}
+
+.icon {
+  margin-right: 12px;
+}
+
+.button {
+  transition: all 0.3s ease;
+}
+
+.button:hover {
+  cursor: pointer;
+  opacity: 0.6;
+}
+
+/* content */
+/*<------ weekdays --------> */
+
+.weekdays {
+  display: flex;
+  margin-bottom: 5px;
+}
+
+.weekdays div {
+  width: calc(400px / 7);
+  height: 30px;
+  text-align: center;
+  color: rgb(125, 125, 125);
+  font-weight: bold;
+}
+
+/*<------ days --------> */
+
+.days {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.days div {
+  width: calc(400px / 7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 50px !important;
+  line-height: 1.5;
+}
+
+.current-days,
+.pre-days,
+.next-days {
+  position: relative;
+}
+
+.current-days p {
+  position: absolute;
+  font-size: 10px;
+  bottom: 0;
+  right: 10%;
+}
+
+.pre-days p {
+  position: absolute;
+  font-size: 10px;
+  bottom: 0;
+  right: 10%;
+}
+
+.next-days p {
+  position: absolute;
+  font-size: 10px;
+  bottom: 0;
+  right: 10%;
+}
+
+.current-days.highlight {
+  color: rgb(255, 224, 25);
+}
+
+.current-days.active {
+  color: rgb(17, 255, 0);
+  font-weight: bold;
+  border-bottom: 1px solid rgb(17, 255, 0);
+  animation: FadeBackGround ease-in 0.5s;
+}
+
+.current-days.today {
+  color: rgb(25, 208, 236);
+  font-weight: bold;
+  border-bottom: 1px solid rgb(25, 208, 236);
+}
+
+.pre-days,
+.next-days {
+  color: var(--disabled-color);
+}
+
+/* ICON */
+.icon {
+  display: flex;
+  align-items: center;
+}
+
+@keyframes FadeBackGround {
+  from {
+    background-color: rgba(229, 137, 0, 0.7);
+  }
+  to {
+    background-color: rgba(229, 137, 0, 0.133);
+  }
+}

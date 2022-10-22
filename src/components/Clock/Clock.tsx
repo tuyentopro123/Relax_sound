@@ -1,49 +1,17 @@
 import React, { useState, useEffect } from "react";
 import style from "src/assets/css/components/Clock.module.css";
 import ChangeCircleIcon from "@mui/icons-material/ChangeCircle";
+import { getTimeString } from "src/util/GetTimeString";
 
-const Clock = () => {
-  const getTimeString = (month: any, language: String) => {
-    var monthEnglish = "";
-    switch (month) {
-      case 1:
-        monthEnglish = language === "en" ? "January" : "tháng 1";
-        break;
-      case 2:
-        monthEnglish = language === "en" ? "Febuary" : "tháng 2";
-        break;
-      case 3:
-        monthEnglish = language === "en" ? "March" : "tháng 3";
-        break;
-      case 4:
-        monthEnglish = language === "en" ? "April" : "tháng 4";
-        break;
-      case 5:
-        monthEnglish = language === "en" ? "May" : "tháng 5";
-        break;
-      case 6:
-        monthEnglish = language === "en" ? "June" : "tháng 6";
-        break;
-      case 7:
-        monthEnglish = language === "en" ? "July" : "tháng 7";
-        break;
-      case 8:
-        monthEnglish = language === "en" ? "August" : "tháng 8";
-        break;
-      case 9:
-        monthEnglish = language === "en" ? "Septemper" : "tháng 9";
-        break;
-      case 10:
-        monthEnglish = language === "en" ? "October" : "tháng 10";
-        break;
-      case 11:
-        monthEnglish = language === "en" ? "November" : "tháng 11";
-        break;
-      default:
-        monthEnglish = language === "en" ? "December" : "tháng 12";
-    }
-    return monthEnglish;
-  };
+const Clock = ({
+  setOpenCalender,
+  language,
+  setLanguage,
+}: {
+  setOpenCalender: any;
+  language: boolean;
+  setLanguage: any;
+}) => {
   const nowDate = new Date();
   const day = nowDate.toLocaleString("en-us", { weekday: "long" });
   const dayString = nowDate.toLocaleString("vi", { weekday: "long" });
@@ -65,8 +33,6 @@ const Clock = () => {
     getTimeString(nowDate.getMonth() + 1, "vi") +
     " năm " +
     nowDate.getFullYear();
-
-  const [language, setLanguage] = useState(true);
 
   const showTime = () => {
     var date = new Date();
@@ -117,6 +83,7 @@ const Clock = () => {
       }
     }
   }, [language]);
+
   return (
     <div className={style.clock}>
       <div className={style.clock_container}>
@@ -124,10 +91,16 @@ const Clock = () => {
         <div id="session"></div>
       </div>
       <div className={style.clock_date_container}>
-        <div id="date" className={style.clock_date}></div>
+        <div
+          id="date"
+          className={style.clock_date}
+          onClick={() => {
+            setOpenCalender(true);
+          }}
+        ></div>
         <div
           onClick={() => {
-            setLanguage((value) => !value);
+            setLanguage(!language);
           }}
           className={style.clock_date_icon}
         >

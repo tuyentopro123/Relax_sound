@@ -21,11 +21,16 @@ const CustomWidthTooltip = styled(({ className, ...props }: TooltipProps) => (
 const Utilities = ({
   ChangeMode,
   mode,
+  setSetting,
+  setVolume,
+  volume,
 }: {
   ChangeMode: Function;
   mode: number;
+  setSetting: any;
+  setVolume: any;
+  volume: boolean;
 }) => {
-  const [volume, setVolume] = useState(true);
   const types = [
     {
       name: "light",
@@ -39,8 +44,9 @@ const Utilities = ({
   ];
 
   const handleVolume = () => {
-    setVolume((value) => !value);
+    setVolume((value: any) => !value);
   };
+
   return (
     <div className={style.utilities}>
       <div className={style.utilities_container}>
@@ -69,6 +75,9 @@ const Utilities = ({
         </CustomWidthTooltip>
         <SettingsIcon
           className={style.utilities_icon}
+          onClick={() => {
+            setSetting(true);
+          }}
           sx={{ fontSize: 30, color: grey[400] }}
         />
         <div className={style.utilities_icon} onClick={() => handleVolume()}>

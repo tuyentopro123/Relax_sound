@@ -7,6 +7,8 @@ import Effect from "src/components/common/Effect";
 import Cube from "src/components/Loading/Cube";
 import Clock from "./components/Clock/Clock";
 import Utilities from "./components/Utilities/Utilities";
+import Calender from "./components/Calender/Calender";
+import Setting from "./components/Setting/Setting";
 
 // icon
 import CloseIcon from "@mui/icons-material/Close";
@@ -23,15 +25,23 @@ import TrainIcon from "@mui/icons-material/Train";
 import AirIcon from "@mui/icons-material/Air";
 import DirectionsCarIcon from "@mui/icons-material/DirectionsCar";
 import NotificationsIcon from "@mui/icons-material/Notifications";
+import Overlay from "./components/common/Overlay";
 
 const boop = new Howl({
   src: ["/sound/boop.mp3"],
 });
 
 function App() {
-  const [mode, setMode] = useState(0);
+  var date = new Date();
+  var h = date.getHours();
+  const [mode, setMode] = useState(h > 12 ? 1 : 0);
   const [invisible, setInvisible] = useState(false);
   const [isLoading, setLoading] = useState(false);
+  const [openCalender, setOpenCalender] = useState(false);
+  const [openSetting, setOpenSetting] = useState(false);
+  const [language, setLanguage] = useState(true);
+  const [volume, setVolume] = useState(true);
+
   const status = [
     {
       name: "morning",
@@ -132,7 +142,7 @@ function App() {
         </div>
         <div className={style.style_effect_menu}>
           {effectSoundList.map((type, index) => (
-            <Effect key={index} name={type.name} icon={type} />
+            <Effect key={index} volume={volume} name={type.name} icon={type} />
           ))}
         </div>
       </div>
@@ -146,8 +156,24 @@ function App() {
         <WidgetsIcon sx={{ fontSize: 30 }} />
       </div>
       {/* ---------- */}
-      <Clock />
-      <Utilities ChangeMode={ChangeMode} mode={mode} />
+      <Clock
+        setLanguage={setLanguage}
+        language={language}
+        setOpenCalender={setOpenCalender}
+      />
+      <Utilities
+        volume={volume}
+        setVolume={setVolume}
+        setSetting={setOpenSetting}
+        ChangeMode={ChangeMode}
+        mode={mode}
+      />
+      <Overlay open={openCalender} setOpen={setOpenCalender}>
+        <Calender language={language} setOpenCalender={setOpenCalender} />
+      </Overlay>
+      <Overlay open={openSetting} setOpen={setOpenSetting}>
+        <Setting setOpenSetting={setOpenSetting} />
+      </Overlay>
       <Cube active={isLoading} />
     </main>
   );

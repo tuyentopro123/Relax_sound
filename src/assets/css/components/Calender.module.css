@@ -1,0 +1,84 @@
+@import url("https://fonts.googleapis.com/css2?family=Andada+Pro:ital,wght@0,500;1,400&family=Neonderthaw&family=Orbitron:wght@400;500&family=Roboto:wght@300;400&display=swap");
+
+.calender {
+  position: relative;
+  top: 0;
+  width: 40%;
+  margin: auto;
+  padding: 20px;
+  border-radius: 8px;
+  background-color: var(--dark);
+  color: var(--light);
+  font-family: Roboto;
+  box-shadow: 0 4px 9px rgb(0 0 0 / 40%);
+  animation: dropDown 0.3s ease;
+}
+
+.calender__form {
+  margin-bottom: 10px;
+  padding: 0 15px;
+  border-bottom: 1px solid #ccc;
+}
+
+.calender__content {
+  padding: 20px;
+}
+
+.calender__form form {
+  width: 60%;
+}
+
+.calender__form label {
+  margin-right: 15px;
+  line-height: 2.2;
+}
+
+.calender__form input {
+  float: right;
+  outline: none;
+  width: 150px;
+  border: none;
+  border-bottom: 1px solid rgb(145, 145, 145);
+  padding: 4px 7px;
+  font-size: 15px;
+}
+
+.calender__button__type,
+.calender__form button {
+  user-select: none;
+  padding: 6px 12px;
+  font-size: 15px;
+  background-color: rgb(26, 197, 244);
+  border-radius: 3px;
+  border: none;
+  margin: 15px 15px 12px 0;
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.calender__button__type:hover,
+.calender__form button:hover {
+  opacity: 0.6;
+}
+
+.calender__today span {
+  font-size: 15px;
+  cursor: pointer;
+  user-select: none;
+  transition: all 0.2s ease;
+}
+
+.calender__today span:hover {
+  color: rgb(26, 197, 244);
+}
+@keyframes dropDown {
+  from {
+    opacity: 0;
+    top: -10%;
+  }
+  to {
+    opacity: 1;
+    top: 0;
+  }
+}
