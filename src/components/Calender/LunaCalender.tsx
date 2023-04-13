@@ -215,7 +215,6 @@ export const convertLunar2Solar = (
     a11 = getLunarMonth11(lunarYear, timeZone);
     b11 = getLunarMonth11(lunarYear + 1, timeZone);
   }
-  console.log(b11 - a11);
 
   off = lunarMonth - 11;
   if (off < 0) {
@@ -229,7 +228,7 @@ export const convertLunar2Solar = (
     }
     if (lunarLeap != 0 && lunarMonth != leapMonth) {
       // return new Array(0, 0, 0);
-    } else if (lunarLeap != 0 || off >= leapOff) {
+    } else if ((lunarLeap != 0 && lunarMonth == leapMonth) || off >= leapOff) {
       off += 1;
     }
   }

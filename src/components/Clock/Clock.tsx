@@ -87,7 +87,7 @@ const Clock = ({
   return (
     <div className={style.clock}>
       <div className={style.clock_container}>
-        <div id="MyClockDisplay" style={{ minWidth: 275 }}></div>
+        <div id="MyClockDisplay" style={{ minWidth: 280 }}></div>
         <div id="session"></div>
       </div>
       <div className={style.clock_date_container}>

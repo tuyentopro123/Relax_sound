@@ -4,6 +4,7 @@
   position: absolute;
   top: 0;
   left: 0;
+  user-select: none;
   background-color: hsl(0deg 0% 6% / 84%);
   border-bottom-right-radius: 10px;
   color: #d1d1d1;

@@ -2,7 +2,6 @@ import React, { useEffect, useRef, useState } from "react";
 import style from "src/assets/css/globals.module.css";
 import "./App.css";
 import { Howl } from "howler";
-import anime from "animejs";
 import Effect from "src/components/common/Effect";
 import Cube from "src/components/Loading/Cube";
 import Clock from "./components/Clock/Clock";
@@ -26,6 +25,7 @@ import AirIcon from "@mui/icons-material/Air";
 import DirectionsCarIcon from "@mui/icons-material/DirectionsCar";
 import NotificationsIcon from "@mui/icons-material/Notifications";
 import Overlay from "./components/common/Overlay";
+import Music from "./components/Music/Music";
 
 const boop = new Howl({
   src: ["/sound/boop.mp3"],
@@ -161,6 +161,8 @@ function App() {
         language={language}
         setOpenCalender={setOpenCalender}
       />
+      {/* ---------- */}
+
       <Utilities
         volume={volume}
         setVolume={setVolume}
@@ -168,9 +170,15 @@ function App() {
         ChangeMode={ChangeMode}
         mode={mode}
       />
+      {/* ---------- */}
+      <Music />
+      {/* ---------- */}
+
       <Overlay open={openCalender} setOpen={setOpenCalender}>
         <Calender language={language} setOpenCalender={setOpenCalender} />
       </Overlay>
+      {/* ---------- */}
+
       <Overlay open={openSetting} setOpen={setOpenSetting}>
         <Setting setOpenSetting={setOpenSetting} />
       </Overlay>
